@@ -30,7 +30,60 @@
           </div>
         </div>
       </div>
-    </div>
+      </div>
+
+          <div class="container d-flex justify-content-center" id="question-1">
+      <div class="card my-4 p-4 question-block" style="width: 75%;">
+        <h4 class="mb-3">What league do you watch the most frequently?</h4>
+        <div class="row g-2">
+          <div class="col-6">
+            <button class="btn btn-outline-primary w-100 answer-btn" data-answer="A">NFL</button>
+          </div>
+          <div class="col-6">
+            <button class="btn btn-outline-primary w-100 answer-btn" data-answer="B">MLS</button>
+          </div>
+          <div class="col-6">
+            <button class="btn btn-outline-primary w-100 answer-btn" data-answer="C">NBA</button>
+          </div>
+          <div class="col-6">
+            <button class="btn btn-outline-primary w-100 answer-btn" data-answer="D">MLB</button>
+          </div>
+        </div>
+      </div>
+      </div>
+
+          <div class="container d-flex justify-content-center" id="question-1">
+      <div class="card my-4 p-4 question-block" style="width: 75%;">
+        <h4 class="mb-3">What athlete would you be the most excited to see?</h4>
+        <div class="row g-2">
+          <div class="col-6">
+            <button class="btn btn-outline-primary w-100 answer-btn" data-answer="A">Tom Brady</button>
+          </div>
+          <div class="col-6">
+            <button class="btn btn-outline-primary w-100 answer-btn" data-answer="B">Lionel Messi</button>
+          </div>
+          <div class="col-6">
+            <button class="btn btn-outline-primary w-100 answer-btn" data-answer="C">Lebron James</button>
+          </div>
+          <div class="col-6">
+            <button class="btn btn-outline-primary w-100 answer-btn" data-answer="D">Mike Trout</button>
+          </div>
+        </div>
+      </div>
+      </div>
+      let buttons = document.querySelectAll('.answer-btn');
+      buttons.forEach(function(button) {
+        button.addEventListener('click', function() {
+          let answer = this.getAttribute('data-answer');
+          output.textContent = "You selected: " + answer;
+        })
+      });
+
+    
+      
+      
+    
+    
 
     
     
