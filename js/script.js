@@ -77,3 +77,7 @@ function displayResult() {
         resultContainer.style.display = 'block';
     }
 }
+let output = document.getElementById('show-result-btn');
+output.addEventListener('click', function() {
+    displayResult();
+});
