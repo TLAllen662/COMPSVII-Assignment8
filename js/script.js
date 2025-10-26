@@ -15,9 +15,9 @@ buttons.forEach(function(button) {
         let answer = button.getAttribute('data-answer');
         let buttonID = button.dataset.buttonid;
         let response = button.dataset.answer === 'A' ? 4 :
-                       button.dataset.answer === 'B' ? 3 :
-                       button.dataset.answer === 'C' ? 2 :
-                       button.dataset.answer === 'D' ? 1 : 0;
+                    button.dataset.answer === 'B' ? 3 :
+                    button.dataset.answer === 'C' ? 2 :
+                    button.dataset.answer === 'D' ? 1 : 0;
         userAnswers[buttonID] = response;
         console.log(userAnswers);
 
@@ -54,6 +54,10 @@ function displayResult() {
     } else if (total > 9) {
         output.textContent = "You prefer football!";
     }
+
+    document.querySelectorAll('question-block').forEach(function(btn) {
+        btn.disabled = true;
+    })
 
     // update result display elements
     let resultText = document.getElementById('result-text');
