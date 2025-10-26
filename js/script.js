@@ -52,4 +52,7 @@ function displayResult() {
         output.textContent = "You prefer football!";
     }
 }
-
+let resultText = document.getElementById('result-text');
+resultText.textContent = output.textContent;
+let resultContainer = document.getElementById('result-container');
+resultContainer.style.display = 'block';
