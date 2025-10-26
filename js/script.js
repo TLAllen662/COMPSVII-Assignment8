@@ -4,14 +4,23 @@ let buttons = document.querySelectorAll('.answer-btn');
 
 document.querySelectorAll('question-1').forEach(function(btn) {
 btn.disabled = true;
+output.addEventListener('click', function() {
+    displayResult();
+})
 })
 
 document.querySelectorAll('question-2').forEach(function(btn) {
 btn.disabled = true;
+output.addEventListener('click', function() {
+    displayResult();
+})
 })
 
 document.querySelectorAll('question-3').forEach(function(btn) {
 btn.disabled = true;
+output.addEventListener('click', function() {
+    displayResult();
+})
 })
 
 buttons.forEach(function(button) {
