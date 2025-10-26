@@ -1,30 +1,55 @@
 console.log("script.js connected!");
-let buttons = document.querySelectAll('.answer-btn');
-    buttons.forEach(function(button) {
-        button.addEventListener('click', function() {
-            console.log('Button clicked!');
-        btn.classlist.remove('selected');
-        
-    button.classList.add("selected");
+let userAnswers = {};
+let buttons = document.querySelectorAll('.answer-btn');
+
+buttons.forEach(function(button) {
+    button.addEventListener('click', function() {
+        console.log('Button clicked!');
+        // remove 'selected' from all buttons
+        buttons.forEach(function(btn) {
+            btn.classList.remove('selected');
+        });
+
+        button.classList.add('selected');
+
         let answer = button.getAttribute('data-answer');
-        let buttonID = button.dataset.buttonid
+        let buttonID = button.dataset.buttonid;
         let response = button.dataset.mood;
         userAnswers[buttonID] = response;
         console.log(userAnswers);
+
         let output = document.getElementById('output');
-        output.textContent = 'You selected:' + answer;
+        output.textContent = 'You selected: ' + answer;
 
+        if (answer === 'A') {
+            output.textContent = 'You chose A';
+        } else if (answer === 'B') {
+            output.textContent = 'You chose B';
+        } else if (answer === 'C') {
+            output.textContent = 'You chose C';
+        } else if (answer === 'D') {
+            output.textContent = 'You chose D';
+        }
 
-    if (answer === 'A') {
-        output.textContent = 'You chose A';
-    } else if (answer === 'B') {
-        output.textContent = 'You chose B';
-    } else if (answer === 'C') {
-        output.textContent = 'You chose C';
-    } else if (answer === 'D') {
-        output.textContent = 'You chose D';
-    }
-})
+        displayResult();
     });
+});
 
+function displayResult() {
+    let output = document.getElementById('output');
+    let total = 0;
+    for (let key in userAnswers) {
+        total += parseInt(userAnswers[key], 10) || 0;
+    }
+
+    if (total <= 3) {
+        output.textContent = "You prefer baseball!";
+    } else if (total > 3 && total <= 6) {
+        output.textContent = "You prefer basketball!";
+    } else if (total > 6 && total <= 9) {
+        output.textContent = "You prefer soccer!";
+    } else if (total > 9) {
+        output.textContent = "You prefer football!";
+    }
+}
 
