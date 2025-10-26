@@ -3,14 +3,17 @@ let userAnswers = {};
 let buttons = document.querySelectorAll('.answer-btn');
 
 document.querySelectorAll('question-1').forEach(function(btn) {
-})
 btn.disabled = true;
+})
+
 document.querySelectorAll('question-2').forEach(function(btn) {
-})
 btn.disabled = true;
-document.querySelectorAll('question-3').forEach(function(btn) {
 })
-btn.disabled = true;        
+
+document.querySelectorAll('question-3').forEach(function(btn) {
+btn.disabled = true;
+})
+
 buttons.forEach(function(button) {
     button.addEventListener('click', function() {
         console.log('Button clicked!');
