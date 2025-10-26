@@ -2,32 +2,15 @@ console.log("script.js connected!");
 let userAnswers = {};
 let buttons = document.querySelectorAll('.answer-btn');
 
-document.querySelectorAll('question-1').forEach(function(btn) {
-btn.disabled = true;
-output.addEventListener('click', function() {
-    displayResult();
-})
-})
-
-document.querySelectorAll('question-2').forEach(function(btn) {
-btn.disabled = true;
-output.addEventListener('click', function() {
-    displayResult();
-})
-})
-
-document.querySelectorAll('question-3').forEach(function(btn) {
-btn.disabled = true;
-output.addEventListener('click', function() {
-    displayResult();
-})
-})
-
 buttons.forEach(function(button) {
     button.addEventListener('click', function() {
         console.log('Button clicked!');
-        // remove 'selected' from all buttons
-        buttons.forEach(function(btn) {
+        // Get all buttons in the same question group
+        const buttonId = button.getAttribute('data-buttonid');
+        const questionButtons = document.querySelectorAll(`.answer-btn[data-buttonid="${buttonId}"]`);
+        
+        // Remove 'selected' from all buttons in this question group
+        questionButtons.forEach(function(btn) {
             btn.classList.remove('selected');
         });
 
@@ -86,7 +69,9 @@ function displayResult() {
         resultContainer.style.display = 'block';
     }
 }
-let output = document.getElementById('show-result-btn');
-output.addEventListener('click', function() {
-    displayResult();
-});
+let showResultButton = document.getElementById('show-result');
+if (showResultButton) {
+    showResultButton.addEventListener('click', function() {
+        displayResult();
+    });
+}
