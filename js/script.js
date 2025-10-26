@@ -25,46 +25,42 @@ buttons.forEach(function(button) {
         userAnswers[buttonID] = response;
         console.log(userAnswers);
 
-        let output = document.getElementById('output');
-        output.textContent = 'You selected: ' + answer;
-
-        if (answer === 'A') {
-            output.textContent = 'You chose A';
-        } else if (answer === 'B') {
-            output.textContent = 'You chose B';
-        } else if (answer === 'C') {
-            output.textContent = 'You chose C';
-        } else if (answer === 'D') {
-            output.textContent = 'You chose D';
-        }
-
-        displayResult();
+        // Store the answer and update the UI
+        console.log(`Question ${buttonID}: selected ${answer} (score: ${response})`);
     });
 });
 
 function displayResult() {
-    let output = document.getElementById('output');
+    // Check if all questions are answered
+    if (Object.keys(userAnswers).length !== 3) {
+        alert("Please answer all questions before viewing the results!");
+        return;
+    }
+
     let total = 0;
     for (let key in userAnswers) {
         total += parseInt(userAnswers[key], 10) || 0;
     }
 
-    if (total <= 3) {
-        output.textContent = "You prefer baseball!";
-    } else if (total > 3 && total <= 6) {
-        output.textContent = "You prefer basketball!";
-    } else if (total > 6 && total <= 9) {
-        output.textContent = "You prefer soccer!";
-    } else if (total > 9) {
-        output.textContent = "You prefer football!";
+    let resultText = document.getElementById('result-text');
+    let resultContainer = document.getElementById('result-container');
+    
+    // Calculate result based on total score
+    let result;
+    if (total <= 6) {
+        result = "You prefer baseball! Baseball tends to be lower contact and more strategic, which aligns with your preferences.";
+    } else if (total <= 8) {
+        result = "You prefer basketball! Basketball offers a good mix of athleticism and moderate contact, matching your choices.";
+    } else if (total <= 10) {
+        result = "You prefer soccer! Soccer combines skill with moderate contact and global appeal, fitting your selections.";
+    } else {
+        result = "You prefer football! Your choices indicate you enjoy high-contact, high-intensity sports like football.";
     }
 
-    // update result display elements
-    let resultText = document.getElementById('result-text');
+    // Update the result elements
     if (resultText) {
-        resultText.textContent = output.textContent;
+        resultText.textContent = result;
     }
-    let resultContainer = document.getElementById('result-container');
     if (resultContainer) {
         resultContainer.style.display = 'block';
     }
