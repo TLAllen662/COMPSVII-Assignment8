@@ -3,7 +3,9 @@ let buttons = document.querySelectAll('.answer-btn');
     buttons.forEach(function(button) {
         button.addEventListener('click', function() {
             console.log('Button clicked!');
-        btn.classlist.add('clicked');
+        btn.classlist.remove('selected');
+        });
+    button.classList.add("selected");
         let mood = button.getAttribute('data-mood');
         let buttonID = button.dataset.buttonid
         let response = button.dataset.mood;
@@ -22,5 +24,5 @@ let buttons = document.querySelectAll('.answer-btn');
         output.textContent = 'You chose D';
     }
 })
-});
+
 
