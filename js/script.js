@@ -2,6 +2,15 @@ console.log("script.js connected!");
 let userAnswers = {};
 let buttons = document.querySelectorAll('.answer-btn');
 
+document.querySelectorAll('question-1').forEach(function(btn) {
+})
+btn.disabled = true;
+document.querySelectorAll('question-2').forEach(function(btn) {
+})
+btn.disabled = true;
+document.querySelectorAll('question-3').forEach(function(btn) {
+})
+btn.disabled = true;        
 buttons.forEach(function(button) {
     button.addEventListener('click', function() {
         console.log('Button clicked!');
@@ -54,10 +63,6 @@ function displayResult() {
     } else if (total > 9) {
         output.textContent = "You prefer football!";
     }
-
-    document.querySelectorAll('question-block').forEach(function(btn) {
-        btn.disabled = true;
-    })
 
     // update result display elements
     let resultText = document.getElementById('result-text');
