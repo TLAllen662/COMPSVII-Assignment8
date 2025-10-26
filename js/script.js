@@ -4,27 +4,27 @@ let buttons = document.querySelectAll('.answer-btn');
         button.addEventListener('click', function() {
             console.log('Button clicked!');
         btn.classlist.remove('selected');
-        });
+        
     button.classList.add("selected");
-        let mood = button.getAttribute('data-mood');
+        let answer = button.getAttribute('data-answer');
         let buttonID = button.dataset.buttonid
         let response = button.dataset.mood;
         userAnswers[buttonID] = response;
         console.log(userAnswers);
         let output = document.getElementById('output');
-        let answer = this.getAttribute('data-answer');
         output.textContent = 'You selected:' + answer;
 
 
-    if (mood === '1') {
+    if (answer === 'A') {
         output.textContent = 'You chose A';
-    } else if (mood === '2') {
+    } else if (answer === 'B') {
         output.textContent = 'You chose B';
-    } else if (mood === '3') {
+    } else if (answer === 'C') {
         output.textContent = 'You chose C';
-    } else if (mood === '4') {
+    } else if (answer === 'D') {
         output.textContent = 'You chose D';
     }
 })
+    });
 
 
