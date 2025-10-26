@@ -9,6 +9,8 @@ let buttons = document.querySelectAll('.answer-btn');
         let mood = button.getAttribute('data-mood');
         let buttonID = button.dataset.buttonid
         let response = button.dataset.mood;
+        userAnswers[buttonID] = response;
+        console.log(userAnswers);
         let output = document.getElementById('output');
         let answer = this.getAttribute('data-answer');
         output.textContent = 'You selected:' + answer;
